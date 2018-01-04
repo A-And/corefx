@@ -22,8 +22,6 @@ namespace System
         public void CopyTo(Span<T> destination) { }
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public static ReadOnlySpan<T> DangerousCreate(object obj, ref T objectData, int length) { throw null; }
-        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public ref T DangerousGetPinnableReference() { throw null; }
 #pragma warning disable 0809  //warning CS0809: Obsolete member 'Span<T>.Equals(object)' overrides non-obsolete member 'object.Equals(object)'
         [System.ObsoleteAttribute("Equals() on ReadOnlySpan will always throw an exception. Use == instead.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
@@ -63,8 +61,6 @@ namespace System
         public void CopyTo(Span<T> destination) { }
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public static Span<T> DangerousCreate(object obj, ref T objectData, int length) { throw null; }
-        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public ref T DangerousGetPinnableReference() { throw null; }
 #pragma warning disable 0809  //warning CS0809: Obsolete member 'Span<T>.Equals(object)' overrides non-obsolete member 'object.Equals(object)'
         [System.ObsoleteAttribute("Equals() on Span will always throw an exception. Use == instead.")]
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
@@ -95,9 +91,9 @@ namespace System
         public static int IndexOf<T>(this Span<T> span, T value) where T : IEquatable<T> { throw null; }
         public static int IndexOf<T>(this Span<T> span, ReadOnlySpan<T> value) where T : IEquatable<T> { throw null; }
 
-        public static int IndexOfAny(this Span<byte> span, byte value0, byte value1) { throw null; }
-        public static int IndexOfAny(this Span<byte> span, byte value0, byte value1, byte value2) { throw null; }
-        public static int IndexOfAny(this Span<byte> span, ReadOnlySpan<byte> values) { throw null; }
+        public static int IndexOfAny<T>(this Span<T> span, T value0, T value1) where T : IEquatable<T> { throw null; }
+        public static int IndexOfAny<T>(this Span<T> span, T value0, T value1, T value2) where T : IEquatable<T> { throw null; }
+        public static int IndexOfAny<T>(this Span<T> span, ReadOnlySpan<T> values) where T : IEquatable<T> { throw null; }
 
         public static int LastIndexOf<T>(this Span<T> span, T value) where T : IEquatable<T> { throw null; }
         public static int LastIndexOf<T>(this Span<T> span, ReadOnlySpan<T> value) where T : IEquatable<T> { throw null; }
@@ -133,9 +129,9 @@ namespace System
         public static int IndexOf<T>(this ReadOnlySpan<T> span, T value) where T : IEquatable<T> { throw null; }
         public static int IndexOf<T>(this ReadOnlySpan<T> span, ReadOnlySpan<T> value) where T : IEquatable<T> { throw null; }
 
-        public static int IndexOfAny(this ReadOnlySpan<byte> span, byte value0, byte value1) { throw null; }
-        public static int IndexOfAny(this ReadOnlySpan<byte> span, byte value0, byte value1, byte value2) { throw null; }
-        public static int IndexOfAny(this ReadOnlySpan<byte> span, ReadOnlySpan<byte> values) { throw null; }
+        public static int IndexOfAny<T>(this ReadOnlySpan<T> span, T value0, T value1) where T : IEquatable<T> { throw null; }
+        public static int IndexOfAny<T>(this ReadOnlySpan<T> span, T value0, T value1, T value2) where T : IEquatable<T> { throw null; }
+        public static int IndexOfAny<T>(this ReadOnlySpan<T> span, ReadOnlySpan<T> values) where T : IEquatable<T> { throw null; }
 
         public static int LastIndexOf<T>(this ReadOnlySpan<T> span, T value) where T : IEquatable<T> { throw null; }
         public static int LastIndexOf<T>(this ReadOnlySpan<T> span, ReadOnlySpan<T> value) where T : IEquatable<T> { throw null; }
@@ -188,8 +184,6 @@ namespace System
         public ReadOnlySpan<T> Span { get { throw null; } }
         public unsafe Buffers.MemoryHandle Retain(bool pin = false) { throw null; }
         public T[] ToArray() { throw null; }
-        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public bool DangerousTryGetArray(out ArraySegment<T> arraySegment) { throw null; }
     }
 
     public readonly struct Memory<T>
